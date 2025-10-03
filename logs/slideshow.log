@@ -1,0 +1,544 @@
+2025-10-03 13:35:57 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 13:35:57 - root - INFO - Logging system initialized
+2025-10-03 13:35:57 - root - INFO - Log level: INFO
+2025-10-03 13:35:57 - root - INFO - Console logging: True
+2025-10-03 13:35:57 - root - INFO - File logging: True
+2025-10-03 13:35:57 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 13:35:57 - root - INFO - Max file size: 10MB
+2025-10-03 13:35:57 - root - INFO - Backup count: 5
+2025-10-03 13:35:57 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 13:35:57 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 13:35:57 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 13:35:57 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 13:35:57 - __main__ - INFO - Monitor index: 1
+2025-10-03 13:35:57 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 13:35:57 - __main__ - INFO - Shuffle enabled: False
+2025-10-03 13:35:57 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 13:36:01 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 13:36:01 - root - INFO - Logging system initialized
+2025-10-03 13:36:01 - root - INFO - Log level: DEBUG
+2025-10-03 13:36:01 - root - INFO - Console logging: True
+2025-10-03 13:36:01 - root - INFO - File logging: True
+2025-10-03 13:36:01 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 13:36:01 - root - INFO - Max file size: 10MB
+2025-10-03 13:36:01 - root - INFO - Backup count: 5
+2025-10-03 13:36:01 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 13:36:01 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 13:36:01 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 13:36:01 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 13:36:01 - __main__ - INFO - Monitor index: 0
+2025-10-03 13:36:01 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 13:36:01 - __main__ - INFO - Shuffle enabled: False
+2025-10-03 13:36:01 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 13:36:15 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 13:36:15 - root - INFO - Logging system initialized
+2025-10-03 13:36:15 - root - INFO - Log level: INFO
+2025-10-03 13:36:15 - root - INFO - Console logging: True
+2025-10-03 13:36:15 - root - INFO - File logging: True
+2025-10-03 13:36:15 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 13:36:15 - root - INFO - Max file size: 10MB
+2025-10-03 13:36:15 - root - INFO - Backup count: 5
+2025-10-03 13:36:15 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 13:36:15 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 13:36:15 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 13:36:15 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 13:36:15 - __main__ - INFO - Monitor index: 1
+2025-10-03 13:36:15 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 13:36:15 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 13:36:15 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 13:36:20 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 13:36:20 - root - INFO - Logging system initialized
+2025-10-03 13:36:20 - root - INFO - Log level: INFO
+2025-10-03 13:36:20 - root - INFO - Console logging: True
+2025-10-03 13:36:20 - root - INFO - File logging: True
+2025-10-03 13:36:20 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 13:36:20 - root - INFO - Max file size: 10MB
+2025-10-03 13:36:20 - root - INFO - Backup count: 5
+2025-10-03 13:36:20 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 13:36:20 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 13:36:20 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 13:36:20 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 13:36:20 - __main__ - INFO - Monitor index: 1
+2025-10-03 13:36:20 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 13:36:20 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 13:36:20 - __main__ - INFO - Force day mode enabled
+2025-10-03 13:36:20 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 13:37:27 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 13:37:27 - root - INFO - Logging system initialized
+2025-10-03 13:37:27 - root - INFO - Log level: INFO
+2025-10-03 13:37:27 - root - INFO - Console logging: True
+2025-10-03 13:37:27 - root - INFO - File logging: True
+2025-10-03 13:37:27 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 13:37:27 - root - INFO - Max file size: 10MB
+2025-10-03 13:37:27 - root - INFO - Backup count: 5
+2025-10-03 13:37:27 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 13:37:27 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 13:37:27 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 13:37:27 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 13:37:27 - __main__ - INFO - Monitor index: 1
+2025-10-03 13:37:27 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 13:37:27 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 13:37:27 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 15:45:22 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 15:45:22 - root - INFO - Logging system initialized
+2025-10-03 15:45:22 - root - INFO - Log level: INFO
+2025-10-03 15:45:22 - root - INFO - Console logging: True
+2025-10-03 15:45:22 - root - INFO - File logging: True
+2025-10-03 15:45:22 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 15:45:22 - root - INFO - Max file size: 10MB
+2025-10-03 15:45:22 - root - INFO - Backup count: 5
+2025-10-03 15:45:22 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 15:45:22 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 15:45:22 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 15:45:22 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 15:45:22 - __main__ - INFO - Error handling system initialized
+2025-10-03 15:45:22 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 15:45:22 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 15:45:22 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 15:45:22 - __main__ - INFO - Monitor index: 1
+2025-10-03 15:45:22 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 15:45:22 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 15:45:22 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 15:45:22 - __main__ - INFO - System health: healthy
+2025-10-03 15:45:22 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 15:45:22 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 15:45:22 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 15:45:22 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 15:51:41 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 15:51:41 - root - INFO - Logging system initialized
+2025-10-03 15:51:41 - root - INFO - Log level: INFO
+2025-10-03 15:51:41 - root - INFO - Console logging: True
+2025-10-03 15:51:41 - root - INFO - File logging: True
+2025-10-03 15:51:41 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 15:51:41 - root - INFO - Max file size: 10MB
+2025-10-03 15:51:41 - root - INFO - Backup count: 5
+2025-10-03 15:51:41 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 15:51:41 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 15:51:41 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 15:51:41 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 15:51:41 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 15:51:41 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 15:51:41 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 15:51:41 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 15:51:41 - __main__ - INFO - Error handling system initialized
+2025-10-03 15:51:41 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 15:51:41 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 15:51:41 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 15:51:41 - __main__ - INFO - Monitor index: 1
+2025-10-03 15:51:41 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 15:51:41 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 15:51:41 - __main__ - INFO - Force day mode enabled (scheduler integration)
+2025-10-03 15:51:41 - __main__ - INFO - Application will override any manual mode selection and switch to day mode
+2025-10-03 15:51:41 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 15:51:41 - __main__ - INFO - System health: healthy
+2025-10-03 15:51:41 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 15:51:41 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 15:51:41 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 15:51:41 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 15:57:48 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 15:57:48 - root - INFO - Logging system initialized
+2025-10-03 15:57:48 - root - INFO - Log level: INFO
+2025-10-03 15:57:48 - root - INFO - Console logging: True
+2025-10-03 15:57:48 - root - INFO - File logging: True
+2025-10-03 15:57:48 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 15:57:48 - root - INFO - Max file size: 10MB
+2025-10-03 15:57:48 - root - INFO - Backup count: 5
+2025-10-03 15:57:48 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 15:57:48 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 15:57:48 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 15:57:48 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 15:57:48 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 15:57:48 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 15:57:48 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 15:57:48 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 15:57:48 - __main__ - INFO - Error handling system initialized
+2025-10-03 15:57:48 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 15:57:48 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 15:57:48 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 15:57:48 - __main__ - INFO - Monitor index: 1
+2025-10-03 15:57:48 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 15:57:48 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 15:57:48 - __main__ - INFO - Force night mode enabled (scheduler integration)
+2025-10-03 15:57:48 - __main__ - INFO - Application will override any manual mode selection and switch to night mode
+2025-10-03 15:57:48 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 15:57:48 - __main__ - INFO - System health: healthy
+2025-10-03 15:57:48 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 15:57:48 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 15:57:48 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 15:57:48 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 15:57:53 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 15:57:53 - root - INFO - Logging system initialized
+2025-10-03 15:57:53 - root - INFO - Log level: INFO
+2025-10-03 15:57:53 - root - INFO - Console logging: True
+2025-10-03 15:57:53 - root - INFO - File logging: True
+2025-10-03 15:57:53 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 15:57:53 - root - INFO - Max file size: 10MB
+2025-10-03 15:57:53 - root - INFO - Backup count: 5
+2025-10-03 15:57:53 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 15:57:53 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 15:57:53 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 15:57:53 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 15:57:53 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 15:57:53 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 15:57:53 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 15:57:53 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 15:57:53 - __main__ - INFO - Error handling system initialized
+2025-10-03 15:57:53 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 15:57:53 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 15:57:53 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 15:57:53 - __main__ - INFO - Monitor index: 1
+2025-10-03 15:57:53 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 15:57:53 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 15:57:53 - __main__ - INFO - Force day mode enabled (scheduler integration)
+2025-10-03 15:57:53 - __main__ - INFO - Application will override any manual mode selection and switch to day mode
+2025-10-03 15:57:53 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 15:57:53 - __main__ - INFO - System health: healthy
+2025-10-03 15:57:53 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 15:57:53 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 15:57:53 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 15:57:53 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:01:04 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:01:04 - root - INFO - Logging system initialized
+2025-10-03 16:01:04 - root - INFO - Log level: DEBUG
+2025-10-03 16:01:04 - root - INFO - Console logging: True
+2025-10-03 16:01:04 - root - INFO - File logging: True
+2025-10-03 16:01:04 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:01:04 - root - INFO - Max file size: 10MB
+2025-10-03 16:01:04 - root - INFO - Backup count: 5
+2025-10-03 16:01:04 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:01:04 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:01:04 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:01:04 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:01:04 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:01:04 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:01:04 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:01:04 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:01:04 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:01:04 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:01:04 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:01:04 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:01:04 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:01:04 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:01:04 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:01:04 - __main__ - INFO - Force night mode enabled (scheduler integration)
+2025-10-03 16:01:04 - __main__ - INFO - Application will override any manual mode selection and switch to night mode
+2025-10-03 16:01:04 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 16:01:04 - __main__ - INFO - System health: healthy
+2025-10-03 16:01:04 - system.single_instance - DEBUG - Application lock released: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:01:04 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:01:04 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:01:04 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:01:04 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:12:17 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:12:17 - root - INFO - Logging system initialized
+2025-10-03 16:12:17 - root - INFO - Log level: INFO
+2025-10-03 16:12:17 - root - INFO - Console logging: True
+2025-10-03 16:12:17 - root - INFO - File logging: True
+2025-10-03 16:12:17 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:12:17 - root - INFO - Max file size: 10MB
+2025-10-03 16:12:17 - root - INFO - Backup count: 5
+2025-10-03 16:12:17 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:12:17 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:12:17 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:12:17 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:12:17 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:12:17 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:12:17 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:12:17 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:12:17 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:12:17 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:12:17 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:12:17 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:12:17 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:12:17 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:12:17 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:12:17 - __main__ - INFO - Application components will be initialized in subsequent tasks
+2025-10-03 16:12:17 - __main__ - INFO - System health: healthy
+2025-10-03 16:12:17 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:12:17 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:12:17 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:12:17 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:13:51 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:13:51 - root - INFO - Logging system initialized
+2025-10-03 16:13:51 - root - INFO - Log level: INFO
+2025-10-03 16:13:51 - root - INFO - Console logging: True
+2025-10-03 16:13:51 - root - INFO - File logging: True
+2025-10-03 16:13:51 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:13:51 - root - INFO - Max file size: 10MB
+2025-10-03 16:13:51 - root - INFO - Backup count: 5
+2025-10-03 16:13:51 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:13:51 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:13:51 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:13:51 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:13:51 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:13:51 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:13:51 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:13:51 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:13:51 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:13:51 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:13:51 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:13:51 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:13:51 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:13:51 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:13:51 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:13:51 - __main__ - INFO - Initializing application components...
+2025-10-03 16:13:51 - __main__ - CRITICAL - Unhandled application error: attempted relative import beyond top-level package
+Traceback (most recent call last):
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/main.py", line 156, in main
+    from scheduler.scheduler import SchedulerIntegration
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/src/scheduler/__init__.py", line 5, in <module>
+    from .scheduler import Scheduler
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/src/scheduler/scheduler.py", line 13, in <module>
+    from ..config.models import CarouselMode, ScheduleMode, ScheduleConfig
+ImportError: attempted relative import beyond top-level package
+2025-10-03 16:13:51 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:13:51 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:13:51 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:13:51 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:14:56 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:14:56 - root - INFO - Logging system initialized
+2025-10-03 16:14:56 - root - INFO - Log level: INFO
+2025-10-03 16:14:56 - root - INFO - Console logging: True
+2025-10-03 16:14:56 - root - INFO - File logging: True
+2025-10-03 16:14:56 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:14:56 - root - INFO - Max file size: 10MB
+2025-10-03 16:14:56 - root - INFO - Backup count: 5
+2025-10-03 16:14:56 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:14:56 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:14:56 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:14:56 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:14:56 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:14:56 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:14:56 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:14:56 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:14:56 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:14:56 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:14:56 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:14:56 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:14:56 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:14:56 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:14:56 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:14:56 - __main__ - INFO - Initializing application components...
+2025-10-03 16:14:57 - __main__ - CRITICAL - Unhandled application error: CarouselManager.__init__() missing 1 required positional argument: 'image_manager'
+Traceback (most recent call last):
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/main.py", line 161, in main
+    carousel_manager = CarouselManager(config.folders, config.playback)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CarouselManager.__init__() missing 1 required positional argument: 'image_manager'
+2025-10-03 16:14:57 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:14:57 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:14:57 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:14:57 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:15:11 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:15:11 - root - INFO - Logging system initialized
+2025-10-03 16:15:11 - root - INFO - Log level: INFO
+2025-10-03 16:15:11 - root - INFO - Console logging: True
+2025-10-03 16:15:11 - root - INFO - File logging: True
+2025-10-03 16:15:11 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:15:11 - root - INFO - Max file size: 10MB
+2025-10-03 16:15:11 - root - INFO - Backup count: 5
+2025-10-03 16:15:11 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:15:11 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:15:11 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:15:11 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:15:11 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:15:11 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:15:11 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:15:11 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:15:11 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:15:11 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:15:11 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:15:11 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:15:11 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:15:11 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:15:11 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:15:11 - __main__ - INFO - Initializing application components...
+2025-10-03 16:15:12 - src.images.image_manager - INFO - Found 2 images in ./images/day
+2025-10-03 16:15:12 - src.carousel.carousel_manager - INFO - Loaded 2 images for day carousel
+2025-10-03 16:15:12 - src.images.image_manager - INFO - Found 2 images in ./images/night
+2025-10-03 16:15:12 - src.carousel.carousel_manager - INFO - Loaded 2 images for night carousel
+2025-10-03 16:15:12 - src.carousel.carousel_manager - INFO - Loaded carousel resume state from ./carousel_state.json
+2025-10-03 16:15:12 - __main__ - INFO - Core components initialized
+2025-10-03 16:15:12 - __main__ - CRITICAL - Unhandled application error: 'ScheduleConfig' object has no attribute 'enabled'
+Traceback (most recent call last):
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/main.py", line 167, in main
+    if config.schedule.enabled:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScheduleConfig' object has no attribute 'enabled'
+2025-10-03 16:15:12 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:15:12 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:15:12 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:15:12 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:15:42 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:15:42 - root - INFO - Logging system initialized
+2025-10-03 16:15:42 - root - INFO - Log level: INFO
+2025-10-03 16:15:42 - root - INFO - Console logging: True
+2025-10-03 16:15:42 - root - INFO - File logging: True
+2025-10-03 16:15:42 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:15:42 - root - INFO - Max file size: 10MB
+2025-10-03 16:15:42 - root - INFO - Backup count: 5
+2025-10-03 16:15:42 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:15:42 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:15:42 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:15:42 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:15:42 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:15:42 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:15:42 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:15:42 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:15:42 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:15:42 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:15:42 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:15:42 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:15:42 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:15:42 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:15:42 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:15:42 - __main__ - INFO - Initializing application components...
+2025-10-03 16:15:42 - src.images.image_manager - INFO - Found 2 images in ./images/day
+2025-10-03 16:15:42 - src.carousel.carousel_manager - INFO - Loaded 2 images for day carousel
+2025-10-03 16:15:42 - src.images.image_manager - INFO - Found 2 images in ./images/night
+2025-10-03 16:15:42 - src.carousel.carousel_manager - INFO - Loaded 2 images for night carousel
+2025-10-03 16:15:42 - src.carousel.carousel_manager - INFO - Loaded carousel resume state from ./carousel_state.json
+2025-10-03 16:15:42 - __main__ - INFO - Core components initialized
+2025-10-03 16:15:42 - src.scheduler.scheduler - INFO - Scheduler initialized with mode: fixed
+2025-10-03 16:15:42 - __main__ - INFO - Scheduler initialized
+2025-10-03 16:15:42 - src.ui.ui_integration - INFO - UI system setup completed
+2025-10-03 16:15:42 - src.display.display_manager - INFO - Detected 2 monitor(s)
+2025-10-03 16:15:42 - src.display.display_manager - INFO - Selected preferred monitor 1
+2025-10-03 16:15:43 - src.display.display_manager - INFO - Created fullscreen window on monitor 1 (3440x1440)
+2025-10-03 16:15:43 - src.ui.ui_controller - INFO - UI rendering components initialized
+2025-10-03 16:15:43 - src.ui.ui_integration - INFO - Display and UI initialized on monitor 1
+2025-10-03 16:15:43 - src.ui.ui_integration - INFO - Complete UI system created and initialized
+2025-10-03 16:15:43 - __main__ - INFO - Scheduler integration enabled
+2025-10-03 16:15:43 - __main__ - INFO - System health: healthy
+2025-10-03 16:15:43 - __main__ - INFO - Starting slideshow...
+2025-10-03 16:15:43 - src.ui.ui_integration - INFO - Starting UI main loop
+2025-10-03 16:15:43 - src.images.image_manager - INFO - Started preloading 3 images
+2025-10-03 16:15:43 - src.ui.ui_controller - INFO - Starting main UI loop
+2025-10-03 16:15:43 - src.images.image_manager - WARNING - Failed to cache image images/day/mietzinssenker_512x192_tag.png: '>=' not supported between instances of 'int' and 'FolderConfig'
+2025-10-03 16:15:43 - src.images.image_manager - WARNING - Failed to cache image images/day/moshi_tag_512x192.png: '>=' not supported between instances of 'int' and 'FolderConfig'
+2025-10-03 16:15:43 - src.ui.ui_controller - ERROR - Error in main loop: module 'pygame' has no attribute 'WINDOWEVENT'
+2025-10-03 16:15:43 - src.ui.ui_controller - INFO - Main UI loop ended
+2025-10-03 16:15:43 - __main__ - CRITICAL - Unhandled application error: module 'pygame' has no attribute 'WINDOWEVENT'
+Traceback (most recent call last):
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/main.py", line 192, in main
+    ui_system.start_ui_loop()
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/src/ui/ui_integration.py", line 134, in start_ui_loop
+    self.ui_controller.run_main_loop()
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/src/ui/ui_controller.py", line 109, in run_main_loop
+    if not self._handle_events():
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/src/ui/ui_controller.py", line 142, in _handle_events
+    event_result = self.event_handler.process_events()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/simonfunk/Workplace/Code/local-scripts/led-video-player/src/ui/event_handler.py", line 119, in process_events
+    elif event.type in (pygame.WINDOWEVENT, pygame.ACTIVEEVENT, pygame.VIDEOEXPOSE):
+                        ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'pygame' has no attribute 'WINDOWEVENT'
+2025-10-03 16:15:43 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:15:43 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:15:43 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:15:43 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:15:43 - src.images.image_manager - WARNING - Failed to cache image images/day/moshi_tag_512x192.png: '>=' not supported between instances of 'int' and 'FolderConfig'
+2025-10-03 16:17:10 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:17:10 - root - INFO - Logging system initialized
+2025-10-03 16:17:10 - root - INFO - Log level: INFO
+2025-10-03 16:17:10 - root - INFO - Console logging: True
+2025-10-03 16:17:10 - root - INFO - File logging: True
+2025-10-03 16:17:10 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:17:10 - root - INFO - Max file size: 10MB
+2025-10-03 16:17:10 - root - INFO - Backup count: 5
+2025-10-03 16:17:10 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:17:10 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:17:10 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:17:10 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:17:10 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:17:10 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:17:10 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:17:10 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:17:10 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:17:10 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:17:10 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:17:10 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:17:10 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:17:10 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:17:10 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:17:10 - __main__ - INFO - Initializing application components...
+2025-10-03 16:17:11 - src.images.image_manager - INFO - Found 2 images in ./images/day
+2025-10-03 16:17:11 - src.carousel.carousel_manager - INFO - Loaded 2 images for day carousel
+2025-10-03 16:17:11 - src.images.image_manager - INFO - Found 2 images in ./images/night
+2025-10-03 16:17:11 - src.carousel.carousel_manager - INFO - Loaded 2 images for night carousel
+2025-10-03 16:17:11 - src.carousel.carousel_manager - INFO - Loaded carousel resume state from ./carousel_state.json
+2025-10-03 16:17:11 - __main__ - INFO - Core components initialized
+2025-10-03 16:17:11 - src.scheduler.scheduler - INFO - Scheduler initialized with mode: fixed
+2025-10-03 16:17:11 - __main__ - INFO - Scheduler initialized
+2025-10-03 16:17:11 - src.ui.ui_integration - INFO - UI system setup completed
+2025-10-03 16:17:11 - src.display.display_manager - INFO - Detected 2 monitor(s)
+2025-10-03 16:17:11 - src.display.display_manager - INFO - Selected preferred monitor 1
+2025-10-03 16:17:11 - src.display.display_manager - INFO - Created fullscreen window on monitor 1 (3440x1440)
+2025-10-03 16:17:11 - src.ui.ui_controller - INFO - UI rendering components initialized
+2025-10-03 16:17:11 - src.ui.ui_integration - INFO - Display and UI initialized on monitor 1
+2025-10-03 16:17:11 - src.ui.ui_integration - INFO - Complete UI system created and initialized
+2025-10-03 16:17:11 - __main__ - INFO - Scheduler integration enabled
+2025-10-03 16:17:11 - __main__ - INFO - System health: healthy
+2025-10-03 16:17:11 - __main__ - INFO - Starting slideshow...
+2025-10-03 16:17:11 - src.ui.ui_integration - INFO - Starting UI main loop
+2025-10-03 16:17:11 - src.images.image_manager - INFO - Started preloading 3 images
+2025-10-03 16:17:11 - src.ui.ui_controller - INFO - Starting main UI loop
+2025-10-03 16:21:45 - src.ui.ui_controller - INFO - Received keyboard interrupt
+2025-10-03 16:21:45 - src.ui.ui_controller - INFO - Main UI loop ended
+2025-10-03 16:21:45 - __main__ - INFO - Slideshow stopped
+2025-10-03 16:21:45 - __main__ - INFO - Scheduler stopped
+2025-10-03 16:21:45 - src.ui.ui_controller - INFO - Cleaning up UI controller
+2025-10-03 16:21:45 - src.ui.ui_controller - INFO - UI controller stopped
+2025-10-03 16:21:45 - src.ui.ui_controller - INFO - UI controller cleanup completed
+2025-10-03 16:21:45 - src.ui.ui_integration - INFO - UI system cleaned up
+2025-10-03 16:21:45 - __main__ - INFO - UI system cleaned up
+2025-10-03 16:21:45 - error_handling.integration - INFO - Cleaning up error handling integration
+2025-10-03 16:21:45 - error_handling.recovery_manager - INFO - Cleaning up recovery manager
+2025-10-03 16:21:45 - error_handling.recovery_manager - INFO - Recovery manager cleanup completed
+2025-10-03 16:21:45 - error_handling.integration - INFO - Error handling integration cleanup completed
+2025-10-03 16:22:04 - root - INFO - File logging enabled: ./logs/slideshow.log
+2025-10-03 16:22:04 - root - INFO - Logging system initialized
+2025-10-03 16:22:04 - root - INFO - Log level: INFO
+2025-10-03 16:22:04 - root - INFO - Console logging: True
+2025-10-03 16:22:04 - root - INFO - File logging: True
+2025-10-03 16:22:04 - root - INFO - Log file: ./logs/slideshow.log
+2025-10-03 16:22:04 - root - INFO - Max file size: 10MB
+2025-10-03 16:22:04 - root - INFO - Backup count: 5
+2025-10-03 16:22:04 - __main__ - INFO - Dual Carousel Slideshow starting...
+2025-10-03 16:22:04 - system.dependency_validator - INFO - All dependencies are available
+2025-10-03 16:22:04 - system.privilege_validator - INFO - Running with standard user privileges (recommended)
+2025-10-03 16:22:04 - system.privilege_validator - INFO - Privilege check passed: Running with appropriate user privileges
+2025-10-03 16:22:04 - __main__ - INFO - Single instance lock acquired: /var/folders/q5/zk4vrv497dd83mmtlg51xlph0000gn/T/dual_carousel_slideshow.lock
+2025-10-03 16:22:04 - error_handling.recovery_manager - INFO - Registered recovery strategy for image_manager
+2025-10-03 16:22:04 - error_handling.recovery_manager - INFO - Registered recovery strategy for display_manager
+2025-10-03 16:22:04 - error_handling.recovery_manager - INFO - Registered recovery strategy for carousel_manager
+2025-10-03 16:22:04 - __main__ - INFO - Error handling system initialized
+2025-10-03 16:22:04 - __main__ - INFO - Configuration loaded successfully
+2025-10-03 16:22:04 - __main__ - INFO - Day folder: ./images/day
+2025-10-03 16:22:04 - __main__ - INFO - Night folder: ./images/night
+2025-10-03 16:22:04 - __main__ - INFO - Monitor index: 1
+2025-10-03 16:22:04 - __main__ - INFO - Schedule mode: fixed
+2025-10-03 16:22:04 - __main__ - INFO - Shuffle enabled: True
+2025-10-03 16:22:04 - __main__ - INFO - Initializing application components...
+2025-10-03 16:22:05 - src.images.image_manager - INFO - Found 2 images in ./images/day
+2025-10-03 16:22:05 - src.carousel.carousel_manager - INFO - Loaded 2 images for day carousel
+2025-10-03 16:22:05 - src.images.image_manager - INFO - Found 2 images in ./images/night
+2025-10-03 16:22:05 - src.carousel.carousel_manager - INFO - Loaded 2 images for night carousel
+2025-10-03 16:22:05 - src.carousel.carousel_manager - INFO - Loaded carousel resume state from ./carousel_state.json
+2025-10-03 16:22:05 - __main__ - INFO - Core components initialized
+2025-10-03 16:22:05 - src.scheduler.scheduler - INFO - Scheduler initialized with mode: fixed
+2025-10-03 16:22:05 - __main__ - INFO - Scheduler initialized
+2025-10-03 16:22:05 - src.ui.ui_integration - INFO - UI system setup completed
+2025-10-03 16:22:05 - src.display.display_manager - INFO - Detected 2 monitor(s)
+2025-10-03 16:22:05 - src.display.display_manager - INFO - Selected preferred monitor 1
+2025-10-03 16:22:06 - src.display.display_manager - INFO - Created fullscreen window on monitor 1 (3440x1440)
+2025-10-03 16:22:06 - src.ui.ui_controller - INFO - UI rendering components initialized
+2025-10-03 16:22:06 - src.ui.ui_integration - INFO - Display and UI initialized on monitor 1
+2025-10-03 16:22:06 - src.ui.ui_integration - INFO - Complete UI system created and initialized
+2025-10-03 16:22:06 - __main__ - INFO - Scheduler integration enabled
+2025-10-03 16:22:06 - __main__ - INFO - System health: healthy
+2025-10-03 16:22:06 - __main__ - INFO - Starting slideshow...
+2025-10-03 16:22:06 - src.ui.ui_integration - INFO - Starting UI main loop
+2025-10-03 16:22:06 - src.images.image_manager - INFO - Started preloading 3 images
+2025-10-03 16:22:06 - src.ui.ui_controller - INFO - Starting main UI loop

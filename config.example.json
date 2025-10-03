@@ -1,0 +1,42 @@
+{
+  "display": {
+    "monitor_index": 1,
+    "always_on_top": true,
+    "hide_cursor_after_ms": 2000,
+    "background_color": "#000000"
+  },
+  "schedule": {
+    "mode": "fixed",
+    "fixed_schedule": {
+      "day_start": "06:00",
+      "night_start": "18:00"
+    },
+    "sun_schedule": {
+      "latitude": 40.7128,
+      "longitude": -74.0060,
+      "day_offset_minutes": 0,
+      "night_offset_minutes": 0
+    }
+  },
+  "playback": {
+    "interval_seconds": 60,
+    "shuffle": true,
+    "fit_mode": "cover",
+    "transition_ms": 300,
+    "reload_images_every_seconds": 300,
+    "resume_index_between_runs": true
+  },
+  "folders": {
+    "day": "./images/day",
+    "night": "./images/night",
+    "include_subfolders": true
+  },
+  "logging": {
+    "level": "INFO",
+    "log_to_file": true,
+    "log_file_path": "./logs/slideshow.log",
+    "max_file_size_mb": 10,
+    "backup_count": 5,
+    "log_to_console": true
+  }
+}

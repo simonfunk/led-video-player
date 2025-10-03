@@ -1,0 +1,149 @@
+# ============================================================================
+# Dual Carousel Slideshow - Configuration File
+# ============================================================================
+# 
+# This is the main configuration file for the Dual Carousel Slideshow application.
+# Copy this file to 'config.yaml' and modify the settings according to your needs.
+#
+# The application displays images from two separate folders (day/night) on a 
+# secondary monitor, automatically switching between them based on time schedules.
+#
+# ============================================================================
+
+# Display Configuration
+# ----------------------------------------------------------------------------
+# Controls how and where the slideshow window is displayed
+display:
+  monitor_index: 1                    # Monitor to use (0=primary, 1=secondary, etc.)
+                                      # If the specified monitor doesn't exist, the app will
+                                      # automatically select the largest non-primary monitor
+  
+  always_on_top: true                 # Keep slideshow window always on top
+                                      # Note: Implementation is platform-specific
+  
+  hide_cursor_after_ms: 2000          # Hide mouse cursor after inactivity (milliseconds)
+                                      # Set to 0 to never hide cursor
+  
+  background_color: "#000000"         # Background color in hex format (#RRGGBB)
+                                      # Visible when images don't fill the entire screen
+
+# Schedule Configuration
+# ----------------------------------------------------------------------------
+# Controls when to switch between day and night image collections
+schedule:
+  mode: "fixed"                       # Schedule mode: "fixed" or "sun"
+                                      # "fixed" = use specific times
+                                      # "sun" = use sunrise/sunset calculations
+  
+  # Fixed Schedule Settings (used when mode = "fixed")
+  # Use this for predictable, consistent switching times
+  fixed_schedule:
+    day_start: "06:00"                # Time to switch to day mode (24-hour format HH:MM)
+    night_start: "18:00"              # Time to switch to night mode (24-hour format HH:MM)
+  
+  # Sun-based Schedule Settings (used when mode = "sun")
+  # Use this for natural sunrise/sunset based switching
+  sun_schedule:
+    latitude: 40.7128                 # Your location's latitude (decimal degrees)
+    longitude: -74.0060               # Your location's longitude (decimal degrees)
+                                      # Example coordinates are for New York City
+                                      # Find your coordinates at: https://www.latlong.net/
+    
+    day_offset_minutes: 0             # Minutes to offset sunrise time
+                                      # Positive = switch to day mode AFTER sunrise
+                                      # Negative = switch to day mode BEFORE sunrise
+    
+    night_offset_minutes: 0           # Minutes to offset sunset time
+                                      # Positive = switch to night mode AFTER sunset
+                                      # Negative = switch to night mode BEFORE sunset
+
+# Playback Configuration
+# ----------------------------------------------------------------------------
+# Controls how images are displayed and transitioned
+playback:
+  interval_seconds: 60                # Seconds between automatic image changes
+                                      # Minimum recommended: 10 seconds
+  
+  shuffle: true                       # Randomize image order within each collection
+                                      # false = display images in alphabetical order
+  
+  fit_mode: "cover"                   # How to scale images to fit the screen:
+                                      # "cover" = scale to fill screen (may crop edges)
+                                      # "fit" = scale to fit entirely (may show black bars)
+  
+  transition_ms: 300                  # Crossfade transition duration (milliseconds)
+                                      # Set to 0 for instant transitions
+                                      # Recommended range: 100-1000ms
+  
+  reload_images_every_seconds: 300    # How often to rescan folders for new images
+                                      # Set to 0 to disable automatic reloading
+                                      # Recommended: 300 seconds (5 minutes)
+  
+  resume_index_between_runs: true     # Remember last displayed image position
+                                      # true = resume from last image on restart
+                                      # false = start from beginning each time
+
+# Folder Configuration
+# ----------------------------------------------------------------------------
+# Specifies where to find day and night image collections
+folders:
+  day: "./images/day"                 # Path to day images folder
+                                      # Can be absolute (/path/to/images) or relative (./images/day)
+  
+  night: "./images/night"             # Path to night images folder
+                                      # Can be absolute (/path/to/images) or relative (./images/night)
+  
+  include_subfolders: true            # Include images from subfolders
+                                      # true = scan all subdirectories recursively
+                                      # false = only scan the specified folders
+
+# Logging Configuration
+# ----------------------------------------------------------------------------
+# Controls application logging for troubleshooting and monitoring
+logging:
+  level: "INFO"                       # Logging level (from most to least verbose):
+                                      # DEBUG, INFO, WARNING, ERROR, CRITICAL
+                                      # Use DEBUG for troubleshooting, INFO for normal operation
+  
+  log_to_file: true                   # Enable logging to file
+                                      # Recommended: true (especially for scheduled tasks)
+  
+  log_file_path: "./logs/slideshow.log"  # Path to log file
+                                          # Directory will be created if it doesn't exist
+  
+  max_file_size_mb: 10                # Maximum log file size before rotation (MB)
+                                      # When exceeded, old logs are archived
+  
+  backup_count: 5                     # Number of archived log files to keep
+                                      # Older files are automatically deleted
+  
+  log_to_console: true                # Also display logs in console/terminal
+                                      # Set to false for scheduled tasks
+
+# ============================================================================
+# Supported Image Formats
+# ============================================================================
+# The application supports the following image formats:
+# - JPEG (.jpg, .jpeg)
+# - PNG (.png)
+# - BMP (.bmp)
+# - Images with EXIF orientation data are automatically rotated
+#
+# ============================================================================
+# Command Line Overrides
+# ============================================================================
+# Any configuration setting can be overridden using command line arguments:
+#
+# --config <path>           Use specific config file
+# --monitor-index <n>       Override monitor selection
+# --day-folder <path>       Override day images folder
+# --night-folder <path>     Override night images folder
+# --interval <seconds>      Override image change interval
+# --shuffle / --no-shuffle  Override shuffle setting
+# --log-level <level>       Override logging level
+# --force-day               Force day mode (ignore schedule)
+# --force-night             Force night mode (ignore schedule)
+#
+# Example: python main.py --config myconfig.yaml --monitor-index 0 --force-day
+#
+# ============================================================================

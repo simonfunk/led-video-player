@@ -1,0 +1,79 @@
+# Example configuration for scheduler integration
+# This configuration is optimized for use with Task Scheduler (Windows) or launchd (macOS)
+
+# Display configuration
+display:
+  monitor_index: 1                    # Use secondary monitor (0=primary, 1=secondary, etc.)
+  always_on_top: true                 # Keep slideshow window on top
+  hide_cursor_after_ms: 3000          # Hide cursor after 3 seconds of inactivity
+  background_color: "#000000"         # Black background
+
+# Scheduling configuration
+schedule:
+  mode: "fixed"                       # Use fixed schedule (recommended for scheduler integration)
+  fixed_schedule:
+    day_start: "06:00"                # Day mode starts at 6:00 AM
+    night_start: "20:00"              # Night mode starts at 8:00 PM
+  
+  # Alternative: Use astronomical schedule (requires location)
+  # mode: "sun"
+  # sun_schedule:
+  #   latitude: 40.7128                # New York City latitude
+  #   longitude: -74.0060              # New York City longitude
+  #   day_offset_minutes: 30           # Start day mode 30 minutes after sunrise
+  #   night_offset_minutes: -30        # Start night mode 30 minutes before sunset
+
+# Playback configuration
+playback:
+  interval_seconds: 30                # Change images every 30 seconds
+  shuffle: true                       # Randomize image order
+  fit_mode: "cover"                   # Scale images to cover screen (crop if needed)
+  transition_ms: 500                  # 500ms crossfade transition
+  reload_images_every_seconds: 300    # Rescan folders every 5 minutes
+  resume_index_between_runs: true     # Remember position between restarts
+
+# Folder configuration
+folders:
+  day: "./images/day"                 # Day images folder
+  night: "./images/night"             # Night images folder
+  include_subfolders: true            # Include images from subfolders
+
+# Logging configuration (important for scheduled tasks)
+logging:
+  level: "INFO"                       # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  log_to_file: true                   # Enable file logging
+  log_file_path: "./logs/slideshow.log"  # Log file location
+  max_file_size_mb: 10                # Rotate logs at 10MB
+  backup_count: 5                     # Keep 5 backup log files
+  log_to_console: false               # Disable console logging for scheduled tasks
+
+# Scheduler Integration Notes:
+# 
+# 1. Force Mode Flags:
+#    Use --force-day or --force-night command line flags to override schedule
+#    Example: python main.py --config config.scheduler.example.yaml --force-day
+#
+# 2. Windows Task Scheduler:
+#    - Create separate tasks for day/night switching
+#    - Use "Run only when user is logged on" (not "Run with highest privileges")
+#    - Set working directory to the application folder
+#    - Example command: python main.py --config config.scheduler.example.yaml --force-day
+#
+# 3. macOS launchd:
+#    - Use LaunchAgents (user-level) not LaunchDaemons (system-level)
+#    - Set appropriate working directory and environment variables
+#    - Example: /usr/local/bin/python3 main.py --config config.scheduler.example.yaml --force-night
+#
+# 4. Logging:
+#    - File logging is enabled for troubleshooting scheduled tasks
+#    - Console logging is disabled to prevent issues with background execution
+#    - Check logs regularly for any errors or warnings
+#
+# 5. Single Instance:
+#    - The application automatically prevents multiple instances
+#    - If a task fails to start, check if another instance is already running
+#
+# 6. Privilege Requirements:
+#    - The application does not require administrator/root privileges
+#    - Running with elevated privileges will generate warnings
+#    - Use standard user accounts for scheduled tasks

@@ -1,0 +1,19 @@
+# Core dependencies for Dual Carousel Slideshow
+# Pinned versions for reproducible builds
+
+# Graphics and display
+pygame==2.6.1
+
+# Image processing
+Pillow==10.4.0
+
+# Configuration management
+PyYAML==6.0.2
+
+# Astronomical calculations for sunrise/sunset
+astral==3.2
+
+# Development and testing dependencies (optional)
+# Uncomment for development environment
+# pytest==8.3.3
+# pytest-cov==5.0.0
