@@ -213,14 +213,27 @@ class DisplayManager:
         try:
             # Set the window position (platform-specific)
             import os
-            os.environ['SDL_VIDEO_WINDOW_POS'] = f'{monitor.x},{monitor.y}'
+            import platform
+            
+            # On macOS, try different approaches for window positioning
+            if platform.system() == "Darwin":
+                # For macOS, try setting position before and after window creation
+                os.environ['SDL_VIDEO_WINDOW_POS'] = f'{monitor.x},{monitor.y}'
+            else:
+                os.environ['SDL_VIDEO_WINDOW_POS'] = f'{monitor.x},{monitor.y}'
             
             # Validate monitor dimensions
             if monitor.width <= 0 or monitor.height <= 0:
                 raise Exception(f"Invalid monitor dimensions: {monitor.width}x{monitor.height}")
             
-            # Create fullscreen window
-            flags = pygame.NOFRAME
+            # Create window with appropriate flags
+            if self.config.use_true_fullscreen:
+                # Use true fullscreen mode (may minimize on focus loss)
+                flags = pygame.FULLSCREEN | pygame.DOUBLEBUF
+            else:
+                # Use borderless window that covers the entire monitor
+                flags = pygame.NOFRAME | pygame.DOUBLEBUF
+                
             if self.config.always_on_top:
                 # Note: pygame doesn't directly support always-on-top
                 # This would need platform-specific implementation
@@ -236,6 +249,14 @@ class DisplayManager:
             
             # Set window caption
             pygame.display.set_caption("Dual Carousel Slideshow")
+            
+            # Verify the actual screen size matches what we requested
+            actual_size = screen.get_size()
+            logger.info(f"Requested size: {monitor.width}x{monitor.height}, Actual size: {actual_size[0]}x{actual_size[1]}")
+            
+            # Set always-on-top if configured
+            if self.config.always_on_top:
+                self._set_always_on_top(True)
             
             # Fill with background color
             bg_color = self._parse_color(self.config.background_color)
@@ -287,14 +308,92 @@ class DisplayManager:
             hide_cursor: Whether to hide the cursor
         """
         if always_on_top is not None:
-            # Note: pygame doesn't have built-in always-on-top support
-            # This would require platform-specific implementation using ctypes
-            logger.debug(f"Always-on-top requested: {always_on_top}")
+            self._set_always_on_top(always_on_top)
             
         if hide_cursor is not None:
             pygame.mouse.set_visible(not hide_cursor)
             self.cursor_hidden = hide_cursor
             logger.debug(f"Cursor visibility set to: {not hide_cursor}")
+    
+    def _set_always_on_top(self, always_on_top: bool):
+        """
+        Set window always-on-top property using platform-specific methods.
+        
+        Args:
+            always_on_top: Whether window should stay on top
+        """
+        try:
+            import platform
+            system = platform.system()
+            
+            if system == "Darwin":  # macOS
+                self._set_always_on_top_macos(always_on_top)
+            elif system == "Windows":
+                self._set_always_on_top_windows(always_on_top)
+            elif system == "Linux":
+                self._set_always_on_top_linux(always_on_top)
+            else:
+                logger.warning(f"Always-on-top not supported on {system}")
+                
+        except Exception as e:
+            logger.warning(f"Failed to set always-on-top: {e}")
+    
+    def _set_always_on_top_macos(self, always_on_top: bool):
+        """Set always-on-top on macOS using Cocoa."""
+        try:
+            import ctypes
+            import ctypes.util
+            
+            # Load Cocoa framework
+            cocoa = ctypes.cdll.LoadLibrary(ctypes.util.find_library('Cocoa'))
+            
+            # Get the current window
+            from pygame import display
+            import pygame.sysfont
+            
+            # This is a simplified approach - in practice, getting the window handle
+            # from pygame on macOS is complex. For now, log the attempt.
+            logger.debug(f"Always-on-top requested for macOS: {always_on_top}")
+            
+        except Exception as e:
+            logger.debug(f"macOS always-on-top implementation failed: {e}")
+    
+    def _set_always_on_top_windows(self, always_on_top: bool):
+        """Set always-on-top on Windows using Win32 API."""
+        try:
+            import ctypes
+            from ctypes import wintypes
+            
+            # Win32 API constants
+            HWND_TOPMOST = -1
+            HWND_NOTOPMOST = -2
+            SWP_NOMOVE = 0x0002
+            SWP_NOSIZE = 0x0001
+            
+            # Get window handle
+            hwnd = pygame.display.get_wm_info()["window"]
+            
+            # Set window position
+            ctypes.windll.user32.SetWindowPos(
+                hwnd,
+                HWND_TOPMOST if always_on_top else HWND_NOTOPMOST,
+                0, 0, 0, 0,
+                SWP_NOMOVE | SWP_NOSIZE
+            )
+            
+            logger.debug(f"Windows always-on-top set to: {always_on_top}")
+            
+        except Exception as e:
+            logger.debug(f"Windows always-on-top implementation failed: {e}")
+    
+    def _set_always_on_top_linux(self, always_on_top: bool):
+        """Set always-on-top on Linux using X11."""
+        try:
+            # This would require X11 implementation
+            logger.debug(f"Linux always-on-top requested: {always_on_top}")
+            
+        except Exception as e:
+            logger.debug(f"Linux always-on-top implementation failed: {e}")
             
     def update_cursor_visibility(self):
         """
@@ -347,6 +446,33 @@ class DisplayManager:
         else:
             return (1920, 1080)  # Default fallback
             
+    def bring_to_front(self):
+        """
+        Bring the window to front (platform-specific implementation).
+        """
+        try:
+            import platform
+            system = platform.system()
+            
+            if system == "Darwin":  # macOS
+                # Try to bring window to front using pygame
+                pygame.display.flip()
+                # Additional macOS-specific code could go here
+                
+            elif system == "Windows":
+                # Windows-specific implementation
+                try:
+                    import ctypes
+                    hwnd = pygame.display.get_wm_info()["window"]
+                    ctypes.windll.user32.SetForegroundWindow(hwnd)
+                except:
+                    pass
+                    
+            logger.debug("Attempted to bring window to front")
+            
+        except Exception as e:
+            logger.debug(f"Failed to bring window to front: {e}")
+    
     def cleanup(self):
         """
         Clean up display resources.

@@ -73,6 +73,7 @@ class UIController:
         self.event_handler.register_callback(HotkeyAction.PREVIOUS_IMAGE, self._handle_previous_image)
         self.event_handler.register_callback(HotkeyAction.FORCE_DAY, self._handle_force_day)
         self.event_handler.register_callback(HotkeyAction.FORCE_NIGHT, self._handle_force_night)
+        self.event_handler.register_callback(HotkeyAction.BRING_TO_FRONT, self._handle_bring_to_front)
         
     def initialize_rendering(self, screen: pygame.Surface) -> None:
         """
@@ -187,19 +188,30 @@ class UIController:
         self._set_manual_override(CarouselMode.NIGHT)
         logger.info("Forced night mode (hotkey)")
     
+    def _handle_bring_to_front(self) -> None:
+        """Handle bring window to front action."""
+        self.display_manager.bring_to_front()
+        logger.info("Brought window to front (hotkey)")
+    
     def _check_image_advance(self) -> None:
         """Check if it's time to automatically advance to the next image."""
         current_time = time.time()
         interval = self.config.playback.interval_seconds
+        time_since_last_change = current_time - self.last_image_change
         
-        if current_time - self.last_image_change >= interval:
+        logger.debug(f"Checking image advance: time_since_last={time_since_last_change:.1f}s, interval={interval}s")
+        
+        if time_since_last_change >= interval:
+            logger.debug("Time to advance to next image")
             self._advance_to_next_image()
     
     def _advance_to_next_image(self) -> None:
         """Advance to the next image in the current carousel."""
+        logger.debug("Advancing to next image")
         next_image_path = self.carousel_manager.advance_image()
         self._transition_to_image(next_image_path)
         self.last_image_change = time.time()
+        logger.info(f"Advanced to next image: {next_image_path}")
     
     def _go_to_previous_image(self) -> None:
         """Go to the previous image in the current carousel."""

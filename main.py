@@ -65,8 +65,10 @@ def main():
         # Load configuration with error handling
         try:
             config_manager = ConfigManager()
+            # Use config.yaml as default if no config file specified
+            config_path = args.config or "config.yaml"
             config = config_manager.load_config(
-                config_path=args.config,
+                config_path=config_path,
                 cli_args=cli_args
             )
         except Exception as e:

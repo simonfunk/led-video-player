@@ -20,6 +20,7 @@ class HotkeyAction(Enum):
     PREVIOUS_IMAGE = "previous_image"
     FORCE_DAY = "force_day"
     FORCE_NIGHT = "force_night"
+    BRING_TO_FRONT = "bring_to_front"
 
 
 class EventHandler:
@@ -36,6 +37,7 @@ class EventHandler:
             pygame.K_LEFT: HotkeyAction.PREVIOUS_IMAGE,
             pygame.K_d: HotkeyAction.FORCE_DAY,
             pygame.K_n: HotkeyAction.FORCE_NIGHT,
+            pygame.K_f: HotkeyAction.BRING_TO_FRONT,
         }
         
         # Action callbacks

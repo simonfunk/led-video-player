@@ -135,36 +135,41 @@ class Carousel:
     def get_current_image_path(self) -> Optional[str]:
         """Get the path of the current image with error handling."""
         with self._lock:
-            try:
-                if not self.image_paths or self.current_index >= len(self.shuffle_order):
-                    return None
-                
-                actual_index = self.shuffle_order[self.current_index]
-                if actual_index >= len(self.image_paths):
-                    logger.error(f"Invalid image index {actual_index} for {len(self.image_paths)} images")
-                    self.current_index = 0
-                    if self.shuffle_order:
-                        actual_index = self.shuffle_order[0]
-                        return self.image_paths[actual_index] if actual_index < len(self.image_paths) else None
-                    return None
-                
-                image_path = self.image_paths[actual_index]
-                
-                # Verify the image file still exists
-                if not os.path.exists(image_path):
-                    logger.warning(f"Image file no longer exists: {image_path}")
-                    # Remove from list and try next image
-                    self.image_paths.pop(actual_index)
-                    self._generate_shuffle_order()
-                    if self.current_index >= len(self.shuffle_order):
-                        self.current_index = 0
-                    return self.get_current_image_path()  # Recursive call to get next valid image
-                
-                return image_path
-                
-            except Exception as e:
-                logger.error(f"Error getting current image path: {e}")
+            return self._get_current_image_path_internal(max_attempts=len(self.image_paths) + 1)
+    
+    def _get_current_image_path_internal(self, max_attempts: int) -> Optional[str]:
+        """Internal method to get current image path with recursion limit."""
+        try:
+            if not self.image_paths or self.current_index >= len(self.shuffle_order) or max_attempts <= 0:
                 return None
+            
+            actual_index = self.shuffle_order[self.current_index]
+            if actual_index >= len(self.image_paths):
+                logger.error(f"Invalid image index {actual_index} for {len(self.image_paths)} images")
+                self.current_index = 0
+                if self.shuffle_order:
+                    actual_index = self.shuffle_order[0]
+                    return self.image_paths[actual_index] if actual_index < len(self.image_paths) else None
+                return None
+            
+            image_path = self.image_paths[actual_index]
+            
+            # Verify the image file still exists
+            if not os.path.exists(image_path):
+                logger.warning(f"Image file no longer exists: {image_path}")
+                # Remove from list and try next image
+                self.image_paths.pop(actual_index)
+                self._generate_shuffle_order()
+                if self.current_index >= len(self.shuffle_order):
+                    self.current_index = 0
+                # Recursive call with decremented attempts counter
+                return self._get_current_image_path_internal(max_attempts - 1)
+            
+            return image_path
+            
+        except Exception as e:
+            logger.error(f"Error getting current image path: {e}")
+            return None
     
     def get_image_path_at_index(self, index: int) -> Optional[str]:
         """Get the path of the image at the specified index."""
@@ -182,7 +187,8 @@ class Carousel:
                 return None
             
             self.current_index = (self.current_index + 1) % len(self.shuffle_order)
-            return self.get_current_image_path()
+            # Call internal method to avoid nested lock acquisition
+            return self._get_current_image_path_internal(max_attempts=len(self.image_paths) + 1)
     
     def previous(self) -> Optional[str]:
         """Go to the previous image and return its path."""
@@ -191,7 +197,8 @@ class Carousel:
                 return None
             
             self.current_index = (self.current_index - 1) % len(self.shuffle_order)
-            return self.get_current_image_path()
+            # Call internal method to avoid nested lock acquisition
+            return self._get_current_image_path_internal(max_attempts=len(self.image_paths) + 1)
     
     def jump_to_index(self, index: int) -> Optional[str]:
         """Jump to a specific index and return the image path."""
@@ -200,7 +207,8 @@ class Carousel:
                 return None
             
             self.current_index = index
-            return self.get_current_image_path()
+            # Call internal method to avoid nested lock acquisition
+            return self._get_current_image_path_internal(max_attempts=len(self.image_paths) + 1)
     
     def get_state(self) -> CarouselState:
         """Get the current state of the carousel."""

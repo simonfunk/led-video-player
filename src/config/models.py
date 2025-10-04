@@ -47,6 +47,7 @@ class DisplayConfig:
     always_on_top: bool = True
     hide_cursor_after_ms: int = 2000
     background_color: str = "#000000"
+    use_true_fullscreen: bool = False
 
 
 @dataclass
