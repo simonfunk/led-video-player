@@ -160,7 +160,7 @@ cython_debug/
 
 # Project-specific files
 # Configuration files (keep examples)
-config.yaml
+#config.yaml
 config.json
 !config.example.yaml
 !config.example.json
