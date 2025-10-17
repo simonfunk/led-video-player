@@ -44,10 +44,12 @@ def main():
         
         # Check for single instance enforcement
         single_instance = SingleInstanceEnforcer()
-        if not single_instance.acquire_lock():
-            print("Another instance of the application is already running.")
-            print("Only one instance can run at a time.")
-            return 1
+        # Temporarily disabled due to zombie process issue on macOS
+        # if not single_instance.acquire_lock():
+        #     print("Another instance of the application is already running.")
+        #     print("Only one instance can run at a time.")
+        #     return 1
+        single_instance.acquire_lock()  # Try to acquire but don't fail
         
         # Convert args to dictionary for config manager
         cli_args = {
@@ -149,55 +151,71 @@ def main():
         
         # Initialize application components
         logger.info("Initializing application components...")
-        
+
         # Import required components
         from src.display.display_manager import DisplayManager
         from src.carousel.carousel_manager import CarouselManager
         from src.images.image_manager import ImageManager
         from src.ui.ui_integration import create_ui_system
         from src.scheduler.schedule_manager import ScheduleManager
-        
+        from src.web.web_server import WebServer
+
         # Initialize core components
         display_manager = DisplayManager(config.display)
         image_manager = ImageManager(cache_size=50)  # Use default cache size
         carousel_manager = CarouselManager(config.playback, config.folders, image_manager)
-        
+
         logger.info("Core components initialized")
-        
+
         # Initialize scheduler
         scheduler = ScheduleManager(config.schedule)
         logger.info("Scheduler initialized")
-        
+
         # Create and initialize UI system
         ui_system = create_ui_system(config, display_manager, carousel_manager, image_manager)
-        
+
         # Set up scheduler integration
         # Set up the callback for when scheduler changes mode
         scheduler.mode_change_callback = ui_system.handle_scheduler_mode_change
         logger.info("Scheduler integration enabled")
-        
+
+        # Initialize and start web server
+        web_server = None
+        if config.web.enabled:
+            try:
+                web_server = WebServer(carousel_manager, config_manager, ui_system=ui_system, host=config.web.host, port=config.web.port)
+                web_server.start()
+                logger.info(f"Web interface started on http://{config.web.host}:{config.web.port}")
+            except Exception as e:
+                logger.error(f"Failed to start web server: {e}")
+                logger.info("Continuing without web interface")
+
         # Handle force mode from command line
         if force_mode:
             from config.models import CarouselMode
             mode = CarouselMode.DAY if force_mode == "day" else CarouselMode.NIGHT
             ui_system.force_ui_mode(mode)
             logger.info(f"Applied force mode: {force_mode}")
-        
+
         # Check system health before starting
         if error_integration:
             health_info = error_integration.get_system_health_info()
             logger.info(f"System health: {health_info['system_health']}")
-        
+
         logger.info("Starting slideshow...")
-        
+
         # Start the main UI loop (this will block until exit)
         ui_system.start_ui_loop()
-        
+
         logger.info("Slideshow stopped")
-        
+
         # Clean up
         logger.info("Scheduler stopped")
-        
+
+        if web_server:
+            web_server.stop()
+            logger.info("Web server stopped")
+
         ui_system.cleanup_ui_system()
         logger.info("UI system cleaned up")
         

@@ -52,11 +52,11 @@ class Carousel:
     def load_images(self, image_manager: ImageManager, include_subfolders: bool = True) -> int:
         """
         Load images from the folder with comprehensive error handling.
-        
+
         Args:
             image_manager: ImageManager instance for scanning folders
             include_subfolders: Whether to include subfolders
-            
+
         Returns:
             Number of images loaded
         """
@@ -79,8 +79,14 @@ class Carousel:
                     self.shuffle_order = []
                     self.current_index = 0
                     return 0
-                
-                # Scan folder for images
+
+                # Check if playlist exists first
+                playlist_loaded = self._try_load_playlist()
+                if playlist_loaded:
+                    logger.info(f"Loaded {len(self.image_paths)} images from playlist for {self.mode.value} carousel")
+                    return len(self.image_paths)
+
+                # Otherwise scan folder for images
                 self.image_paths = image_manager.scan_folder(self.folder_path, include_subfolders)
                 self.last_reload_time = datetime.now()
                 
@@ -117,7 +123,56 @@ class Carousel:
                 self.shuffle_order = []
                 self.current_index = 0
                 return 0
-    
+
+    def _try_load_playlist(self) -> bool:
+        """Try to load playlist from file. Returns True if playlist was loaded."""
+        try:
+            from pathlib import Path
+            playlist_file = Path(f'./playlist_{self.mode.value}.json')
+
+            if not playlist_file.exists():
+                return False
+
+            with open(playlist_file, 'r') as f:
+                data = json.load(f)
+                playlist = data.get('playlist', [])
+
+                if not playlist:
+                    return False
+
+                # Build full paths for playlist items
+                folder_path = Path(self.folder_path).resolve()
+                valid_paths = []
+
+                for filename in playlist:
+                    full_path = folder_path / filename
+                    if full_path.exists():
+                        valid_paths.append(str(full_path))
+                    else:
+                        logger.warning(f"Playlist item not found: {filename}")
+
+                if not valid_paths:
+                    logger.warning(f"No valid images in playlist for {self.mode.value}")
+                    return False
+
+                # Set image paths from playlist
+                self.image_paths = valid_paths
+                self.last_reload_time = datetime.now()
+
+                # Generate shuffle order (will be sequential for playlists)
+                self._generate_shuffle_order()
+                if self.current_index >= len(self.image_paths):
+                    self.current_index = 0
+
+                logger.info(f"Loaded playlist for {self.mode.value}: {len(valid_paths)} items")
+                from pathlib import Path
+                logger.info(f"Playlist sequence: {[Path(p).name for p in valid_paths]}")
+                return True
+
+        except Exception as e:
+            logger.warning(f"Failed to load playlist for {self.mode.value}: {e}")
+            return False
+
     def _generate_shuffle_order(self):
         """Generate a new shuffle order for the images."""
         if not self.image_paths:
@@ -220,13 +275,22 @@ class Carousel:
                 last_reload_time=self.last_reload_time.isoformat() if self.last_reload_time else None
             )
     
-    def set_state(self, state: CarouselState):
+    def set_state(self, state: CarouselState, restore_image_paths: bool = True):
         """Set the carousel state from a CarouselState object."""
         with self._lock:
-            self.current_index = state.current_index
-            self.image_paths = state.image_paths.copy()
-            self.shuffle_order = state.shuffle_order.copy()
-            
+            # If using a playlist, always start from beginning (index 0)
+            has_playlist = self._has_playlist()
+            if has_playlist:
+                self.current_index = 0
+                logger.info(f"Playlist mode active for {self.mode.value} - starting from beginning")
+            else:
+                self.current_index = state.current_index
+
+            # Only restore image paths if requested (and not using a playlist)
+            if restore_image_paths and not has_playlist:
+                self.image_paths = state.image_paths.copy()
+                self.shuffle_order = state.shuffle_order.copy()
+
             if state.last_reload_time:
                 try:
                     self.last_reload_time = datetime.fromisoformat(state.last_reload_time)
@@ -234,10 +298,19 @@ class Carousel:
                     self.last_reload_time = None
             else:
                 self.last_reload_time = None
-            
+
             # Validate current index
             if self.current_index >= len(self.shuffle_order):
                 self.current_index = 0
+
+    def _has_playlist(self) -> bool:
+        """Check if a playlist exists for this carousel mode."""
+        try:
+            from pathlib import Path
+            playlist_file = Path(f'./playlist_{self.mode.value}.json')
+            return playlist_file.exists()
+        except:
+            return False
     
     def get_image_count(self) -> int:
         """Get the total number of images in the carousel."""

@@ -6,6 +6,7 @@ A fullscreen slideshow application that displays images from separate day and ni
 
 - 🖥️ **Multi-Monitor Support**: Automatically detects and displays on secondary monitors
 - 🌅 **Day/Night Switching**: Automatic switching between image collections based on time or sunrise/sunset
+- 🌐 **Web Interface**: Remote control and management from any device on your network
 - 🎛️ **Flexible Configuration**: YAML/JSON configuration with command-line overrides
 - 🖼️ **Smart Image Handling**: Supports JPEG, PNG, BMP with automatic EXIF rotation
 - ⌨️ **Hotkey Controls**: Keyboard shortcuts for navigation and mode switching
@@ -123,6 +124,24 @@ python3 main.py --monitor-index 0
 # Change image interval
 python3 main.py --interval 30
 ```
+
+### Web Interface
+
+Access the web interface for remote control and management:
+
+```
+http://localhost:5000        # Local access
+http://YOUR_IP:5000          # Access from other devices
+```
+
+Features:
+- 📊 Real-time status monitoring
+- 🎮 Playback controls (play/pause, next/previous)
+- ⚙️ Settings management
+- 🖼️ Image upload and management
+- 🌓 Day/Night mode switching
+
+See [WEB_INTERFACE.md](WEB_INTERFACE.md) for detailed documentation.
 
 ### Scheduler Integration
 

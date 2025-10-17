@@ -11,8 +11,8 @@ from typing import Dict, Any, Optional
 import yaml
 
 from .models import (
-    AppConfig, DisplayConfig, ScheduleConfig, PlaybackConfig, 
-    FolderConfig, LoggingConfig, FixedScheduleConfig, SunScheduleConfig
+    AppConfig, DisplayConfig, ScheduleConfig, PlaybackConfig,
+    FolderConfig, LoggingConfig, FixedScheduleConfig, SunScheduleConfig, WebConfig
 )
 
 
@@ -177,13 +177,15 @@ class ConfigManager:
             playback_config = PlaybackConfig(**config_dict.get('playback', {}))
             folder_config = FolderConfig(**config_dict.get('folders', {}))
             logging_config = LoggingConfig(**config_dict.get('logging', {}))
-            
+            web_config = WebConfig(**config_dict.get('web', {}))
+
             return AppConfig(
                 display=display_config,
                 schedule=schedule_config,
                 playback=playback_config,
                 folders=folder_config,
-                logging=logging_config
+                logging=logging_config,
+                web=web_config
             )
         except Exception as e:
             self.logger.error(f"Failed to create config object: {e}")

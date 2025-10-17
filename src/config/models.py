@@ -48,6 +48,8 @@ class DisplayConfig:
     hide_cursor_after_ms: int = 2000
     background_color: str = "#000000"
     use_true_fullscreen: bool = False
+    window_x: Optional[int] = None
+    window_y: Optional[int] = None
 
 
 @dataclass
@@ -89,6 +91,14 @@ class LoggingConfig:
 
 
 @dataclass
+class WebConfig:
+    """Configuration for web interface."""
+    enabled: bool = True
+    host: str = "0.0.0.0"
+    port: int = 5000
+
+
+@dataclass
 class AppConfig:
     """Main application configuration."""
     display: DisplayConfig = field(default_factory=DisplayConfig)
@@ -96,6 +106,7 @@ class AppConfig:
     playback: PlaybackConfig = field(default_factory=PlaybackConfig)
     folders: FolderConfig = field(default_factory=FolderConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
+    web: WebConfig = field(default_factory=WebConfig)
 
 
 @dataclass

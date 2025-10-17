@@ -26,7 +26,7 @@ class DisplayManager:
     def __init__(self, config: DisplayConfig):
         """
         Initialize the display manager.
-        
+
         Args:
             config: Display configuration settings
         """
@@ -35,7 +35,9 @@ class DisplayManager:
         self.selected_monitor: Optional[MonitorInfo] = None
         self.cursor_hidden = False
         self.last_mouse_activity = time.time()
-        
+        self.config_file_path = "config.yaml"  # Default config file path
+        self._window_moved = False  # Track if window has been moved
+
         # Initialize pygame display
         pygame.display.init()
         
@@ -214,57 +216,61 @@ class DisplayManager:
             # Set the window position (platform-specific)
             import os
             import platform
-            
+
+            # Fixed window size
+            window_width = 512
+            window_height = 192
+
+            # Use saved window position if available, otherwise use monitor position
+            if self.config.window_x is not None and self.config.window_y is not None:
+                window_x = self.config.window_x
+                window_y = self.config.window_y
+                logger.info(f"Restoring window position: ({window_x}, {window_y})")
+            else:
+                window_x = monitor.x
+                window_y = monitor.y
+
             # On macOS, try different approaches for window positioning
             if platform.system() == "Darwin":
                 # For macOS, try setting position before and after window creation
-                os.environ['SDL_VIDEO_WINDOW_POS'] = f'{monitor.x},{monitor.y}'
+                os.environ['SDL_VIDEO_WINDOW_POS'] = f'{window_x},{window_y}'
             else:
-                os.environ['SDL_VIDEO_WINDOW_POS'] = f'{monitor.x},{monitor.y}'
-            
-            # Validate monitor dimensions
-            if monitor.width <= 0 or monitor.height <= 0:
-                raise Exception(f"Invalid monitor dimensions: {monitor.width}x{monitor.height}")
-            
-            # Create window with appropriate flags
-            if self.config.use_true_fullscreen:
-                # Use true fullscreen mode (may minimize on focus loss)
-                flags = pygame.FULLSCREEN | pygame.DOUBLEBUF
-            else:
-                # Use borderless window that covers the entire monitor
-                flags = pygame.NOFRAME | pygame.DOUBLEBUF
-                
+                os.environ['SDL_VIDEO_WINDOW_POS'] = f'{window_x},{window_y}'
+
+            # Create regular windowed mode (no fullscreen)
+            flags = pygame.DOUBLEBUF | pygame.RESIZABLE
+
             if self.config.always_on_top:
                 # Note: pygame doesn't directly support always-on-top
                 # This would need platform-specific implementation
                 pass
-                
+
             screen = pygame.display.set_mode(
-                (monitor.width, monitor.height),
+                (window_width, window_height),
                 flags
             )
-            
+
             if screen is None:
                 raise Exception("pygame.display.set_mode returned None")
-            
+
             # Set window caption
-            pygame.display.set_caption("Dual Carousel Slideshow")
-            
+            pygame.display.set_caption("LED Video Player")
+
             # Verify the actual screen size matches what we requested
             actual_size = screen.get_size()
-            logger.info(f"Requested size: {monitor.width}x{monitor.height}, Actual size: {actual_size[0]}x{actual_size[1]}")
-            
+            logger.info(f"Requested size: {window_width}x{window_height}, Actual size: {actual_size[0]}x{actual_size[1]}")
+
             # Set always-on-top if configured
             if self.config.always_on_top:
                 self._set_always_on_top(True)
-            
+
             # Fill with background color
             bg_color = self._parse_color(self.config.background_color)
             screen.fill(bg_color)
             pygame.display.flip()
-            
+
             return screen
-            
+
         except pygame.error as e:
             raise Exception(f"Pygame display error: {e}")
         except Exception as e:
@@ -473,11 +479,125 @@ class DisplayManager:
         except Exception as e:
             logger.debug(f"Failed to bring window to front: {e}")
     
+    def handle_window_event(self, event):
+        """
+        Handle window-related pygame events to track position changes.
+
+        Args:
+            event: pygame event
+        """
+        # Track window move events
+        if hasattr(pygame, 'WINDOWMOVED') and event.type == pygame.WINDOWMOVED:
+            self._window_moved = True
+            logger.debug(f"Window moved event detected")
+
+    def save_window_position(self):
+        """
+        Save the current window position to config file.
+        Note: Currently only works on Windows. macOS and Linux not supported.
+        """
+        try:
+            import yaml
+            from pathlib import Path
+            import platform
+
+            system = platform.system()
+            window_x = None
+            window_y = None
+
+            # Only implement for Windows
+            if system == "Windows":
+                try:
+                    import ctypes
+                    from ctypes import wintypes
+
+                    # Get window handle and position using Win32 API
+                    wm_info = pygame.display.get_wm_info()
+                    hwnd = wm_info.get("window")
+
+                    if hwnd:
+                        rect = wintypes.RECT()
+                        ctypes.windll.user32.GetWindowRect(hwnd, ctypes.byref(rect))
+                        window_x = rect.left
+                        window_y = rect.top
+                        logger.info(f"Got window position from Win32 API: ({window_x}, {window_y})")
+                except Exception as e:
+                    logger.warning(f"Failed to get position from Win32 API: {e}")
+
+            elif system == "Darwin":  # macOS
+                logger.info("Window position saving not supported on macOS")
+                return
+
+            elif system == "Linux":
+                logger.info("Window position saving not supported on Linux")
+                return
+
+            # If we couldn't get position from platform-specific methods
+            if window_x is None or window_y is None:
+                logger.warning("Could not determine window position")
+                return
+
+            # Load existing config
+            config_path = Path(self.config_file_path)
+            if config_path.exists():
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    config_data = yaml.safe_load(f) or {}
+            else:
+                config_data = {}
+
+            # Update window position
+            if 'display' not in config_data:
+                config_data['display'] = {}
+
+            config_data['display']['window_x'] = window_x
+            config_data['display']['window_y'] = window_y
+
+            # Save config
+            config_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(config_path, 'w', encoding='utf-8') as f:
+                yaml.dump(config_data, f, default_flow_style=False, sort_keys=False)
+
+            logger.info(f"Saved window position to config: ({window_x}, {window_y})")
+
+        except Exception as e:
+            logger.error(f"Failed to save window position: {e}", exc_info=True)
+
+    def get_current_window_position(self) -> Optional[Tuple[int, int]]:
+        """
+        Get the current window position.
+
+        Returns:
+            Tuple of (x, y) position or None if unavailable
+        """
+        try:
+            import platform
+            import os
+
+            system = platform.system()
+
+            if system == "Darwin":  # macOS
+                # Try to get from environment variable
+                pos = os.environ.get('SDL_VIDEO_WINDOW_POS', '')
+                if ',' in pos:
+                    parts = pos.split(',')
+                    return (int(parts[0]), int(parts[1]))
+
+            # For other platforms or if macOS method fails
+            # pygame doesn't provide a direct way to get window position
+            return None
+
+        except Exception as e:
+            logger.debug(f"Failed to get window position: {e}")
+            return None
+
     def cleanup(self):
         """
-        Clean up display resources.
+        Clean up display resources and save window position.
         """
         if self.screen:
+            # Save window position before closing
+            self.save_window_position()
+
             pygame.display.quit()
             self.screen = None
             logger.info("Display resources cleaned up")

@@ -13,6 +13,9 @@ PyYAML==6.0.2
 # Astronomical calculations for sunrise/sunset
 astral==3.2
 
+# Web interface
+Flask==3.0.0
+
 # Development and testing dependencies (optional)
 # Uncomment for development environment
 # pytest==8.3.3
