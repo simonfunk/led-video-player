@@ -23,11 +23,11 @@ class UIController:
     Main UI controller managing the event loop, hotkeys, and user interactions.
     """
     
-    def __init__(self, config: AppConfig, display_manager: DisplayManager, 
+    def __init__(self, config: AppConfig, display_manager: DisplayManager,
                  carousel_manager: CarouselManager, image_manager: ImageManager):
         """
         Initialize the UI controller.
-        
+
         Args:
             config: Application configuration
             display_manager: Display manager instance
@@ -38,12 +38,16 @@ class UIController:
         self.display_manager = display_manager
         self.carousel_manager = carousel_manager
         self.image_manager = image_manager
-        
+
         # UI state
         self.is_running = False
         self.manual_override: Optional[CarouselMode] = None
         self.last_image_change = time.time()
         self.current_image_surface: Optional[pygame.Surface] = None
+
+        # Scheduler integration
+        self.scheduler = None
+        self.last_schedule_check = time.time()
         
         # Event handling components
         self.event_handler = EventHandler()
@@ -64,7 +68,12 @@ class UIController:
         # Initialize pygame
         pygame.init()
         pygame.key.set_repeat()  # Disable key repeat for better control
-    
+
+    def set_scheduler(self, scheduler) -> None:
+        """Set the scheduler for automatic mode switching."""
+        self.scheduler = scheduler
+        logger.info("Scheduler attached to UI controller")
+
     def _setup_event_callbacks(self) -> None:
         """Setup callbacks for event handler actions."""
         self.event_handler.register_callback(HotkeyAction.EXIT, self._handle_exit)
@@ -112,11 +121,16 @@ class UIController:
                 
                 # Update cursor visibility
                 self.display_manager.update_cursor_visibility()
-                
+
+                # Check scheduler for mode changes (every 60 seconds)
+                if self.scheduler and time.time() - self.last_schedule_check > 60:
+                    self.scheduler.check_for_mode_change()
+                    self.last_schedule_check = time.time()
+
                 # Check if it's time to advance to next image (if not paused)
                 if not self.pause_manager.is_paused:
                     self._check_image_advance()
-                
+
                 # Update display
                 pygame.display.flip()
                 

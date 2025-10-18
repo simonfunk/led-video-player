@@ -169,7 +169,8 @@ def main():
 
         # Initialize scheduler
         scheduler = ScheduleManager(config.schedule)
-        logger.info("Scheduler initialized")
+        current_mode = scheduler.get_current_mode()
+        logger.info(f"Scheduler initialized - current mode: {current_mode.value}")
 
         # Create and initialize UI system
         ui_system = create_ui_system(config, display_manager, carousel_manager, image_manager)
@@ -177,13 +178,20 @@ def main():
         # Set up scheduler integration
         # Set up the callback for when scheduler changes mode
         scheduler.mode_change_callback = ui_system.handle_scheduler_mode_change
-        logger.info("Scheduler integration enabled")
+
+        # Attach scheduler to UI controller for periodic checking
+        if ui_system.ui_controller:
+            ui_system.ui_controller.set_scheduler(scheduler)
+
+        # Apply the scheduler's initial mode
+        ui_system.handle_scheduler_mode_change(current_mode)
+        logger.info(f"Scheduler integration enabled - applied initial mode: {current_mode.value}")
 
         # Initialize and start web server
         web_server = None
         if config.web.enabled:
             try:
-                web_server = WebServer(carousel_manager, config_manager, ui_system=ui_system, host=config.web.host, port=config.web.port)
+                web_server = WebServer(carousel_manager, config_manager, ui_system=ui_system, scheduler=scheduler, host=config.web.host, port=config.web.port)
                 web_server.start()
                 logger.info(f"Web interface started on http://{config.web.host}:{config.web.port}")
             except Exception as e:

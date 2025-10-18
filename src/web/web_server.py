@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class WebServer:
     """Web server for remote control interface."""
 
-    def __init__(self, carousel_manager, config_manager, ui_system=None, host='0.0.0.0', port=5000):
+    def __init__(self, carousel_manager, config_manager, ui_system=None, scheduler=None, host='0.0.0.0', port=5000):
         """
         Initialize web server.
 
@@ -24,12 +24,14 @@ class WebServer:
             carousel_manager: CarouselManager instance
             config_manager: ConfigManager instance
             ui_system: UIIntegrationManager instance (optional, for control features)
+            scheduler: ScheduleManager instance (optional, for schedule updates)
             host: Host address to bind to (default: 0.0.0.0 for all interfaces)
             port: Port to listen on (default: 5000)
         """
         self.carousel_manager = carousel_manager
         self.config_manager = config_manager
         self.ui_system = ui_system
+        self.scheduler = scheduler
         self.host = host
         self.port = port
         self.app = Flask(__name__,
@@ -130,6 +132,12 @@ class WebServer:
                         'fixed_schedule': {
                             'day_start': config.schedule.fixed_schedule.day_start,
                             'night_start': config.schedule.fixed_schedule.night_start
+                        },
+                        'sun_schedule': {
+                            'latitude': config.schedule.sun_schedule.latitude,
+                            'longitude': config.schedule.sun_schedule.longitude,
+                            'day_offset_minutes': config.schedule.sun_schedule.day_offset_minutes,
+                            'night_offset_minutes': config.schedule.sun_schedule.night_offset_minutes
                         }
                     }
                 })
@@ -184,13 +192,47 @@ class WebServer:
                     updated_items.append(f"Interval changed to {new_interval}s")
                     logger.info(f"Applied interval change: {new_interval}s")
 
-                # Update shuffle in real-time
+                # Shuffle changes require restart (carousel needs to reload)
                 if 'playback' in data and 'shuffle' in data['playback']:
-                    new_shuffle = data['playback']['shuffle']
-                    self.config_manager.config.playback.shuffle = new_shuffle
-                    self.carousel_manager.set_shuffle(new_shuffle)
-                    updated_items.append(f"Shuffle {'enabled' if new_shuffle else 'disabled'}")
-                    logger.info(f"Applied shuffle change: {new_shuffle}")
+                    restart_needed = True
+                    updated_items.append("Shuffle setting (restart required)")
+
+                # Update schedule in real-time
+                if 'schedule' in data and self.scheduler:
+                    schedule_data = data['schedule']
+
+                    # Update mode
+                    if 'mode' in schedule_data:
+                        self.config_manager.config.schedule.mode = schedule_data['mode']
+
+                    # Update fixed schedule
+                    if 'fixed_schedule' in schedule_data:
+                        fixed = schedule_data['fixed_schedule']
+                        if 'day_start' in fixed:
+                            self.config_manager.config.schedule.fixed_schedule.day_start = fixed['day_start']
+                        if 'night_start' in fixed:
+                            self.config_manager.config.schedule.fixed_schedule.night_start = fixed['night_start']
+
+                    # Update sun schedule
+                    if 'sun_schedule' in schedule_data:
+                        sun = schedule_data['sun_schedule']
+                        if 'latitude' in sun:
+                            self.config_manager.config.schedule.sun_schedule.latitude = sun['latitude']
+                        if 'longitude' in sun:
+                            self.config_manager.config.schedule.sun_schedule.longitude = sun['longitude']
+                        if 'day_offset_minutes' in sun:
+                            self.config_manager.config.schedule.sun_schedule.day_offset_minutes = sun['day_offset_minutes']
+                        if 'night_offset_minutes' in sun:
+                            self.config_manager.config.schedule.sun_schedule.night_offset_minutes = sun['night_offset_minutes']
+
+                    # Reinitialize scheduler with new config
+                    try:
+                        self.scheduler.update_config(self.config_manager.config.schedule)
+                        updated_items.append(f"Schedule updated ({schedule_data.get('mode', 'unknown')} mode)")
+                        logger.info(f"Applied schedule changes: {schedule_data}")
+                    except Exception as e:
+                        logger.warning(f"Failed to apply schedule changes in real-time: {e}")
+                        updated_items.append("Schedule saved (restart may be required)")
 
                 # Folders require restart
                 if 'folders' in data:

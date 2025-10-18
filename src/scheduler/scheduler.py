@@ -229,18 +229,22 @@ class Scheduler:
             return CarouselMode.DAY
             
         current_time_only = current_time.time()
-        
+
         # Handle normal case where day_start < night_start (e.g., 06:00 to 18:00)
         if day_start < night_start:
             if day_start <= current_time_only < night_start:
+                self.logger.info(f"Schedule check: {current_time_only} is between {day_start} and {night_start} → DAY mode")
                 return CarouselMode.DAY
             else:
+                self.logger.info(f"Schedule check: {current_time_only} is outside {day_start}-{night_start} → NIGHT mode")
                 return CarouselMode.NIGHT
         # Handle midnight crossing case where night_start < day_start (e.g., 18:00 to 06:00)
         else:
             if night_start <= current_time_only or current_time_only < day_start:
+                self.logger.info(f"Schedule check (midnight crossing): {current_time_only} → NIGHT mode")
                 return CarouselMode.NIGHT
             else:
+                self.logger.info(f"Schedule check (midnight crossing): {current_time_only} → DAY mode")
                 return CarouselMode.DAY
     
     def _get_sun_schedule_mode(self, current_time: datetime) -> CarouselMode:

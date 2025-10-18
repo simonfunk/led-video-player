@@ -151,6 +151,26 @@ class ScheduleManager:
             except Exception as e:
                 self.logger.error(f"Error in mode change callback: {e}")
     
+    def update_config(self, new_config: ScheduleConfig):
+        """
+        Update the schedule configuration and reinitialize the scheduler.
+
+        Args:
+            new_config: New schedule configuration
+        """
+        old_mode = self._current_mode
+        self.scheduler = Scheduler(new_config)
+        self._update_current_mode()
+        self.logger.info(f"Schedule configuration updated: mode={new_config.mode}")
+
+        # Check if mode changed due to config update and notify callback
+        if self._current_mode != old_mode and self.mode_change_callback:
+            self.logger.info(f"Mode changed from {old_mode} to {self._current_mode} due to config update")
+            try:
+                self.mode_change_callback(self._current_mode)
+            except Exception as e:
+                self.logger.error(f"Error in mode change callback: {e}")
+
     def _update_current_mode(self):
         """Update the current mode from the scheduler."""
         self._current_mode = self.scheduler.get_current_mode()

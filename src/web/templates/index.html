@@ -384,6 +384,40 @@
                 <input type="text" id="night-folder" placeholder="./images/night">
             </div>
 
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #667eea; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">📅 Schedule</h3>
+
+            <div class="form-group">
+                <label>Schedule Mode</label>
+                <select id="schedule-mode">
+                    <option value="fixed">Fixed Times</option>
+                    <option value="sun">Sunrise/Sunset</option>
+                </select>
+            </div>
+
+            <div id="fixed-schedule-section">
+                <div class="form-group">
+                    <label>☀️ Day Start Time (24h format)</label>
+                    <input type="time" id="day-start" value="06:00">
+                </div>
+
+                <div class="form-group">
+                    <label>🌙 Night Start Time (24h format)</label>
+                    <input type="time" id="night-start" value="18:00">
+                </div>
+            </div>
+
+            <div id="sun-schedule-section" style="display: none;">
+                <div class="form-group">
+                    <label>Latitude</label>
+                    <input type="number" id="latitude" step="0.0001" placeholder="47.3769">
+                </div>
+
+                <div class="form-group">
+                    <label>Longitude</label>
+                    <input type="number" id="longitude" step="0.0001" placeholder="8.5417">
+                </div>
+            </div>
+
             <button class="btn-success" onclick="saveSettings()">💾 Save Settings</button>
         </div>
 
@@ -482,13 +516,54 @@
                 document.getElementById('shuffle').value = data.playback.shuffle.toString();
                 document.getElementById('day-folder').value = data.folders.day;
                 document.getElementById('night-folder').value = data.folders.night;
+
+                // Load schedule settings
+                if (data.schedule) {
+                    document.getElementById('schedule-mode').value = data.schedule.mode;
+
+                    if (data.schedule.fixed_schedule) {
+                        document.getElementById('day-start').value = data.schedule.fixed_schedule.day_start;
+                        document.getElementById('night-start').value = data.schedule.fixed_schedule.night_start;
+                    }
+
+                    if (data.schedule.sun_schedule) {
+                        document.getElementById('latitude').value = data.schedule.sun_schedule.latitude;
+                        document.getElementById('longitude').value = data.schedule.sun_schedule.longitude;
+                    }
+
+                    updateScheduleVisibility();
+                }
             } catch (error) {
                 console.error('Error loading config:', error);
             }
         }
 
+        function updateScheduleVisibility() {
+            const mode = document.getElementById('schedule-mode').value;
+            const fixedSection = document.getElementById('fixed-schedule-section');
+            const sunSection = document.getElementById('sun-schedule-section');
+
+            if (mode === 'fixed') {
+                fixedSection.style.display = 'block';
+                sunSection.style.display = 'none';
+            } else {
+                fixedSection.style.display = 'none';
+                sunSection.style.display = 'block';
+            }
+        }
+
+        // Add event listener for schedule mode change
+        document.addEventListener('DOMContentLoaded', () => {
+            const scheduleModeSelect = document.getElementById('schedule-mode');
+            if (scheduleModeSelect) {
+                scheduleModeSelect.addEventListener('change', updateScheduleVisibility);
+            }
+        });
+
         async function saveSettings() {
             try {
+                const scheduleMode = document.getElementById('schedule-mode').value;
+
                 const data = {
                     playback: {
                         interval_seconds: parseInt(document.getElementById('interval').value),
@@ -497,6 +572,17 @@
                     folders: {
                         day: document.getElementById('day-folder').value,
                         night: document.getElementById('night-folder').value
+                    },
+                    schedule: {
+                        mode: scheduleMode,
+                        fixed_schedule: {
+                            day_start: document.getElementById('day-start').value,
+                            night_start: document.getElementById('night-start').value
+                        },
+                        sun_schedule: {
+                            latitude: parseFloat(document.getElementById('latitude').value) || 40.7128,
+                            longitude: parseFloat(document.getElementById('longitude').value) || -74.0060
+                        }
                     }
                 };
 

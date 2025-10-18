@@ -5,17 +5,15 @@ display:
   background_color: '#000000'
   use_true_fullscreen: false
 schedule:
-  mode: fixed
+  mode: sun
   fixed_schedule:
     day_start: 06:00
-    night_start: '18:00'
+    night_start: '06:00'
   sun_schedule:
-    latitude: 40.7128
-    longitude: -74.006
-    day_offset_minutes: 0
-    night_offset_minutes: 0
+    latitude: 47.0502
+    longitude: 8.3093
 playback:
-  interval_seconds: 15
+  interval_seconds: 5
   shuffle: false
   fit_mode: cover
   transition_ms: 300
